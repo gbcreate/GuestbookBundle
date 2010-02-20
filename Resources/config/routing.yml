@@ -1,0 +1,9 @@
+guestbook:
+  pattern:  /
+  defaults: { _bundle: GuestbookBundle, _controller: Guestbook, _action: index }
+
+guestbook_post:
+  pattern:  /post
+  defaults: { _bundle: GuestbookBundle, _controller: Guestbook, _action: post }
+  requirements:
+    _method: post

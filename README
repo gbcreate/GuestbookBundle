@@ -1,0 +1,3 @@
+# Symfony 2 Guestbook Bundle
+
+This bundle is just a simple guestbook written using Symfony 2 and Doctrine 2. The point is not really to create a guestbook for people to really use, but more just a practice pilot project for me to help with developing the DoctrineBundle.
