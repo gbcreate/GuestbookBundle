@@ -2,14 +2,37 @@
 
 namespace Bundle\GuestbookBundle\Entities;
 
+/**
+ * @Entity
+ * @Table(name="guestbook_entry")
+ */
 class Entry
 {
-  private
-    $id,
-    $createdAt,
-    $name,
-    $emailAddress,
-    $body;
+  /**
+   * @Id @Column(type="integer")
+   * @GeneratedValue
+   */
+  private $id;
+
+  /**
+   * @Column(type="datetime", name="created_at")
+   */
+  private $createdAt;
+
+  /**
+   * @Column(type="string", length=255)
+   */
+  private $name;
+
+  /**
+   * @Column(type="string", length=255, name="email_address")
+   */
+  private $emailAddress;
+
+  /**
+   * @Column(type="text")
+   */
+  private $body;
 
   public function __construct()
   {
