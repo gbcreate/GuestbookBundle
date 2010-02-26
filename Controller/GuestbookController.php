@@ -10,9 +10,10 @@ class GuestbookController extends Controller
 {
   public function indexAction()
   {
-    $qb = $this->getEntityManager()->createQueryBuilder()
+    $em = $this->getEntityManager();
+    $qb = $em->createQueryBuilder()
       ->select('e')
-      ->from('Bundle\GuestbookBundle\Entities\Entry', 'e');
+      ->from('GuestbookBundle\Entry', 'e');
 
     $query = $qb->getQuery();
     $entries = $query->execute();

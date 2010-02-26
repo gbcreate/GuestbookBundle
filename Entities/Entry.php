@@ -8,74 +8,107 @@ namespace Bundle\GuestbookBundle\Entities;
  */
 class Entry
 {
-  /**
-   * @Id @Column(type="integer")
-   * @GeneratedValue
-   */
-  private $id;
+    /**
+     * @Column(name="created_at", type="datetime")
+     */
+    private $createdAt;
 
-  /**
-   * @Column(type="datetime", name="created_at")
-   */
-  private $createdAt;
+    /**
+     * @Column(name="name", type="string", length=255)
+     */
+    private $name;
 
-  /**
-   * @Column(type="string", length=255)
-   */
-  private $name;
+    /**
+     * @Column(name="email_address", type="string", length=255)
+     */
+    private $emailAddress;
 
-  /**
-   * @Column(type="string", length=255, name="email_address")
-   */
-  private $emailAddress;
+    /**
+     * @Column(name="body", type="text")
+     */
+    private $body;
 
-  /**
-   * @Column(type="text")
-   */
-  private $body;
+    /**
+     * @Column(name="id", type="integer")
+     * @Id
+     * @GeneratedValue(strategy="AUTO")
+     */
+    private $id;
 
-  public function __construct()
-  {
-    $this->createdAt = new \DateTime();
-  }
+    public function __construct()
+    {
+        $this->createdAt = new \DateTime();
+    }
 
-  public function getId()
-  {
-    return $this->id;
-  }
+    /**
+     * Set createdAt
+     */
+    public function setCreatedAt($value)
+    {
+        $this->createdAt = $value;
+    }
 
-  public function getName()
-  {
-    return $this->name;
-  }
+    /**
+     * Get createdAt
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
 
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
+    /**
+     * Set name
+     */
+    public function setName($value)
+    {
+        $this->name = $value;
+    }
 
-  public function getEmailAddress()
-  {
-    return $this->emailAddress;
-  }
+    /**
+     * Get name
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 
-  public function setEmailAddress($emailAddress)
-  {
-    $this->emailAddress = $emailAddress;
-  }
+    /**
+     * Set emailAddress
+     */
+    public function setEmailAddress($value)
+    {
+        $this->emailAddress = $value;
+    }
 
-  public function getBody()
-  {
-    return $this->body;
-  }
+    /**
+     * Get emailAddress
+     */
+    public function getEmailAddress()
+    {
+        return $this->emailAddress;
+    }
 
-  public function setBody($body)
-  {
-    $this->body = $body;
-  }
+    /**
+     * Set body
+     */
+    public function setBody($value)
+    {
+        $this->body = $value;
+    }
 
-  public function getCreatedAt()
-  {
-    return $this->createdAt;
-  }
+    /**
+     * Get body
+     */
+    public function getBody()
+    {
+        return $this->body;
+    }
+
+    /**
+     * Get id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 }
