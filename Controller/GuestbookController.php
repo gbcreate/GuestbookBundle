@@ -13,7 +13,7 @@ class GuestbookController extends Controller
     $em = $this->getEntityManager();
     $qb = $em->createQueryBuilder()
       ->select('e')
-      ->from('GuestbookBundle\Entry', 'e');
+      ->from('GuestbookBundle:Entry', 'e');
 
     $query = $qb->getQuery();
     $entries = $query->execute();
@@ -31,7 +31,7 @@ class GuestbookController extends Controller
     $requiredFields = array('name', 'email_address', 'body');
     foreach ($requiredFields as $requiredField)
     {
-      if (!$request->getParameter($requiredField))
+      if (!$request->get($requiredField))
       {
         $missingFields[] = $requiredField;
       }
@@ -45,9 +45,9 @@ class GuestbookController extends Controller
     $em = $this->getEntityManager();
 
     $entry = new Entry();
-    $entry->setName($request->getParameter('name'));
-    $entry->setEmailAddress($request->getParameter('email_address'));
-    $entry->setBody($request->getParameter('body'));
+    $entry->setName($request->get('name'));
+    $entry->setEmailAddress($request->get('email_address'));
+    $entry->setBody($request->get('body'));
 
     $em->persist($entry);
     $em->flush();
